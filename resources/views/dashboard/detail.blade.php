@@ -69,29 +69,36 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
         }
 
         @keyframes slideUp {
-            from { 
-                opacity: 0; 
-                transform: translateY(30px); 
+            from {
+                opacity: 0;
+                transform: translateY(30px);
             }
-            to { 
-                opacity: 1; 
-                transform: translateY(0); 
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
 
         @keyframes scaleIn {
-            from { 
-                opacity: 0; 
-                transform: scale(0.9); 
+            from {
+                opacity: 0;
+                transform: scale(0.9);
             }
-            to { 
-                opacity: 1; 
-                transform: scale(1); 
+
+            to {
+                opacity: 1;
+                transform: scale(1);
             }
         }
 
@@ -171,9 +178,12 @@
 <body class="min-h-screen">
     <!-- Theme Toggle Button -->
     <div class="fixed top-4 right-4 z-50">
-        <button onclick="toggleTheme()" class="theme-toggle p-3 rounded-full text-white hover:scale-110 transition-all duration-300">
+        <button onclick="toggleTheme()"
+            class="theme-toggle p-3 rounded-full text-white hover:scale-110 transition-all duration-300">
             <svg id="theme-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z">
+                </path>
             </svg>
         </button>
     </div>
@@ -197,7 +207,7 @@
                 @endif
             </div>
             <a href="{{ route('dashboard') }}"
-                class="glass-card px-6 py-3 rounded-xl text-white hover:scale-105 transition-all duration-300 flex items-center">
+                class="glass-card px-6 py-3 rounded-xl text-theme hover:scale-105 transition-all duration-300 flex items-center">
                 <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                         d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
@@ -234,21 +244,32 @@
                     <table class="min-w-full">
                         <thead class="bg-gradient-to-r from-teal-600/20 to-teal-700/20">
                             <tr>
-                                <th class="px-6 py-4 text-left text-xs font-medium text-theme uppercase tracking-wider">No</th>
-                                <th class="px-6 py-4 text-left text-xs font-medium text-theme uppercase tracking-wider">NIA</th>
-                                <th class="px-6 py-4 text-left text-xs font-medium text-theme uppercase tracking-wider">Entitas</th>
-                                <th class="px-6 py-4 text-left text-xs font-medium text-theme uppercase tracking-wider">Regional</th>
-                                <th class="px-6 py-4 text-left text-xs font-medium text-theme uppercase tracking-wider">Kebun</th>
-                                <th class="px-6 py-4 text-left text-xs font-medium text-theme uppercase tracking-wider">Provinsi</th>
+                                <th class="px-6 py-4 text-left text-xs font-medium text-theme uppercase tracking-wider">
+                                    No</th>
+                                <th class="px-6 py-4 text-left text-xs font-medium text-theme uppercase tracking-wider">
+                                    NIA</th>
+                                <th class="px-6 py-4 text-left text-xs font-medium text-theme uppercase tracking-wider">
+                                    Entitas</th>
+                                <th class="px-6 py-4 text-left text-xs font-medium text-theme uppercase tracking-wider">
+                                    Regional</th>
+                                <th class="px-6 py-4 text-left text-xs font-medium text-theme uppercase tracking-wider">
+                                    Kebun</th>
+                                {{-- <th class="px-6 py-4 text-left text-xs font-medium text-theme uppercase tracking-wider">Provinsi</th>
                                 <th class="px-6 py-4 text-left text-xs font-medium text-theme uppercase tracking-wider">Kabupaten</th>
                                 <th class="px-6 py-4 text-left text-xs font-medium text-theme uppercase tracking-wider">Kecamatan</th>
-                                <th class="px-6 py-4 text-left text-xs font-medium text-theme uppercase tracking-wider">Desa</th>
-                                <th class="px-6 py-4 text-left text-xs font-medium text-theme uppercase tracking-wider">Luas Areal</th>
-                                <th class="px-6 py-4 text-left text-xs font-medium text-theme uppercase tracking-wider">Posisi</th>
-                                <th class="px-6 py-4 text-left text-xs font-medium text-theme uppercase tracking-wider">Jenis Hak</th>
-                                <th class="px-6 py-4 text-left text-xs font-medium text-theme uppercase tracking-wider">Jenis Permohonan</th>
-                                <th class="px-6 py-4 text-left text-xs font-medium text-theme uppercase tracking-wider">Keterangan</th>
-                                <th class="px-6 py-4 text-left text-xs font-medium text-theme uppercase tracking-wider">Tanggal</th>
+                                <th class="px-6 py-4 text-left text-xs font-medium text-theme uppercase tracking-wider">Desa</th> --}}
+                                <th class="px-6 py-4 text-left text-xs font-medium text-theme uppercase tracking-wider">
+                                    Luas Areal</th>
+                                <th class="px-6 py-4 text-left text-xs font-medium text-theme uppercase tracking-wider">
+                                    Posisi</th>
+                                <th class="px-6 py-4 text-left text-xs font-medium text-theme uppercase tracking-wider">
+                                    Jenis Hak</th>
+                                <th class="px-6 py-4 text-left text-xs font-medium text-theme uppercase tracking-wider">
+                                    Jenis Permohonan</th>
+                                <th class="px-6 py-4 text-left text-xs font-medium text-theme uppercase tracking-wider">
+                                    Keterangan</th>
+                                <th class="px-6 py-4 text-left text-xs font-medium text-theme uppercase tracking-wider">
+                                    Tanggal</th>
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-white/10">
@@ -269,7 +290,7 @@
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-theme">
                                         {{ $dokumen->Kebun ?? '-' }}
                                     </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-theme">
+                                    {{-- <td class="px-6 py-4 whitespace-nowrap text-sm text-theme">
                                         {{ $dokumen->Provinsi ?? '-' }}
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-theme">
@@ -280,7 +301,7 @@
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-theme">
                                         {{ $dokumen->Desa ?? '-' }}
-                                    </td>
+                                    </td> --}}
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-theme">
                                         {{ $dokumen->Luas_areal ? number_format($dokumen->Luas_areal, 2) . ' Ha' : '-' }}
                                     </td>
@@ -302,7 +323,8 @@
                                     <td class="px-6 py-4 text-sm text-theme">
                                         <div class="max-w-sm max-h-32 overflow-auto">
                                             @if ($dokumen->keterangan)
-                                                <div class="whitespace-pre-wrap break-words">{{ $dokumen->keterangan }}</div>
+                                                <div class="whitespace-pre-wrap break-words">{{ $dokumen->keterangan }}
+                                                </div>
                                             @else
                                                 <span class="text-theme/50 italic">-</span>
                                             @endif
@@ -323,7 +345,8 @@
                 </div>
             @else
                 <div class="px-6 py-12 text-center scale-in">
-                    <div class="bg-gradient-to-r from-gray-400 to-gray-500 text-white rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                    <div
+                        class="bg-gradient-to-r from-gray-400 to-gray-500 text-white rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
@@ -332,7 +355,8 @@
                     </div>
                     <h3 class="text-lg font-medium text-theme mb-2">Tidak ada data ditemukan</h3>
                     <p class="text-sm text-theme/70">Tidak ada dokumen yang sesuai dengan filter yang dipilih.</p>
-                    <p class="text-xs text-theme/50 mt-2">Coba ubah filter atau kembali ke dashboard untuk melihat semua data.</p>
+                    <p class="text-xs text-theme/50 mt-2">Coba ubah filter atau kembali ke dashboard untuk melihat semua
+                        data.</p>
                 </div>
             @endif
         </div>
@@ -344,27 +368,30 @@
             const html = document.documentElement;
             const currentTheme = html.getAttribute('data-theme');
             const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            
+
             html.setAttribute('data-theme', newTheme);
             localStorage.setItem('theme', newTheme);
-            
+
             // Update icon
             const icon = document.getElementById('theme-icon');
             if (newTheme === 'dark') {
-                icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>';
+                icon.innerHTML =
+                    '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>';
             } else {
-                icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>';
+                icon.innerHTML =
+                    '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>';
             }
         }
 
         // Initialize theme
         const savedTheme = localStorage.getItem('theme') || 'light';
         document.documentElement.setAttribute('data-theme', savedTheme);
-        
+
         // Update icon based on saved theme
         const icon = document.getElementById('theme-icon');
         if (savedTheme === 'dark') {
-            icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>';
+            icon.innerHTML =
+                '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>';
         }
     </script>
 </body>

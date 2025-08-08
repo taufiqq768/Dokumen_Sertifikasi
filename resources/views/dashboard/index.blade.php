@@ -70,29 +70,36 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
         }
 
         @keyframes slideUp {
-            from { 
-                opacity: 0; 
-                transform: translateY(30px); 
+            from {
+                opacity: 0;
+                transform: translateY(30px);
             }
-            to { 
-                opacity: 1; 
-                transform: translateY(0); 
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
 
         @keyframes scaleIn {
-            from { 
-                opacity: 0; 
-                transform: scale(0.9); 
+            from {
+                opacity: 0;
+                transform: scale(0.9);
             }
-            to { 
-                opacity: 1; 
-                transform: scale(1); 
+
+            to {
+                opacity: 1;
+                transform: scale(1);
             }
         }
 
@@ -181,9 +188,12 @@
 <body class="min-h-screen">
     <!-- Theme Toggle Button -->
     <div class="fixed top-4 right-4 z-50">
-        <button onclick="toggleTheme()" class="theme-toggle p-3 rounded-full text-white hover:scale-110 transition-all duration-300">
+        <button onclick="toggleTheme()"
+            class="theme-toggle p-3 rounded-full text-white hover:scale-110 transition-all duration-300">
             <svg id="theme-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z">
+                </path>
             </svg>
         </button>
     </div>
@@ -248,7 +258,8 @@
                             <div>
                                 <h3 class="text-sm font-medium text-theme">
                                     {{ ucwords(str_replace('_', ' ', $posisi->posisi)) }}</h3>
-                                <p class="text-2xl font-bold bg-gradient-to-r {{ $gradient }} bg-clip-text text-transparent">
+                                <p
+                                    class="text-2xl font-bold bg-gradient-to-r {{ $gradient }} bg-clip-text text-transparent">
                                     {{ number_format($posisi->proses_dokumen_count) }}</p>
                                 <p class="text-xs text-theme/70 mt-1">Klik untuk detail</p>
                             </div>
@@ -263,8 +274,7 @@
             <h2 class="text-xl font-semibold text-white mb-4">✅ Dokumen Berdasarkan Status</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <!-- Clear Status Card -->
-                <a href="{{ route('dashboard.detail', ['status' => 'clear']) }}"
-                    class="stat-card block rounded-xl p-6">
+                <a href="{{ route('dashboard.detail', ['status' => 'clear']) }}" class="stat-card block rounded-xl p-6">
                     <div class="flex items-center">
                         <div class="icon-gradient-green text-white rounded-lg p-3 mr-4">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -347,23 +357,25 @@
             const html = document.documentElement;
             const currentTheme = html.getAttribute('data-theme');
             const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            
+
             html.setAttribute('data-theme', newTheme);
             localStorage.setItem('theme', newTheme);
-            
+
             // Update icon
             const icon = document.getElementById('theme-icon');
             if (newTheme === 'dark') {
-                icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>';
+                icon.innerHTML =
+                    '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>';
             } else {
-                icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>';
+                icon.innerHTML =
+                    '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>';
             }
         }
 
         // Initialize theme
         const savedTheme = localStorage.getItem('theme') || 'light';
         document.documentElement.setAttribute('data-theme', savedTheme);
-        
+
         // Data untuk charts
         const dokumenByEntitas = @json($dokumenByEntitas);
         const jenisHakByEntitas = @json($jenisHakByEntitas);
@@ -372,12 +384,12 @@
 
         // Modern color palettes
         const modernColors = [
-            '#06b6d4', '#10b981', '#f59e0b', '#ef4444', 
+            '#06b6d4', '#10b981', '#f59e0b', '#ef4444',
             '#8b5cf6', '#f97316', '#84cc16', '#ec4899'
         ];
 
         const warmColors = [
-            '#ef4444', '#f97316', '#f59e0b', '#dc2626', 
+            '#ef4444', '#f97316', '#f59e0b', '#dc2626',
             '#ea580c', '#d97706', '#b91c1c', '#c2410c'
         ];
 
@@ -452,10 +464,15 @@
                             generateLabels: function(chart) {
                                 const data = chart.data;
                                 if (data.labels.length && data.datasets.length) {
-                                    const total = data.datasets[0].data.reduce((a, b) => a + b, 0);
+                                    // Perbaikan: Konversi ke number sebelum reduce
+                                    const total = data.datasets[0].data
+                                        .map(val => Number(val) || 0)
+                                        .reduce((a, b) => a + b, 0);
+
                                     return data.labels.map((label, i) => {
-                                        const value = data.datasets[0].data[i];
-                                        const percentage = ((value / total) * 100).toFixed(1);
+                                        const value = Number(data.datasets[0].data[i]) || 0;
+                                        const percentage = total > 0 ? ((value / total) * 100).toFixed(
+                                            1) : '0.0';
                                         return {
                                             text: `${label}: ${value} (${percentage}%)`,
                                             fillStyle: data.datasets[0].backgroundColor[i],
@@ -473,11 +490,20 @@
                     },
                     tooltip: {
                         backgroundColor: 'rgba(0, 0, 0, 0.8)',
-                        titleFont: { family: 'Inter', size: 12 },
-                        bodyFont: { family: 'Inter', size: 11 },
+                        titleFont: {
+                            family: 'Inter',
+                            size: 12
+                        },
+                        bodyFont: {
+                            family: 'Inter',
+                            size: 11
+                        },
                         callbacks: {
                             label: function(context) {
-                                const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                                const total = context.dataset.data
+                                    .map(val => Number(val) || 0) // Konversi setiap nilai ke number
+                                    .reduce((a, b) => a + b, 0); // Sekarang akan menjumlahkan number
+
                                 const percentage = ((context.parsed / total) * 100).toFixed(1);
                                 return `${context.label}: ${context.parsed} dokumen (${percentage}%) - Klik untuk detail`;
                             }
@@ -527,13 +553,22 @@
                     legend: {
                         position: 'top',
                         labels: {
-                            font: { family: 'Inter', size: 11 }
+                            font: {
+                                family: 'Inter',
+                                size: 11
+                            }
                         }
                     },
                     tooltip: {
                         backgroundColor: 'rgba(0, 0, 0, 0.8)',
-                        titleFont: { family: 'Inter', size: 12 },
-                        bodyFont: { family: 'Inter', size: 11 },
+                        titleFont: {
+                            family: 'Inter',
+                            size: 12
+                        },
+                        bodyFont: {
+                            family: 'Inter',
+                            size: 11
+                        },
                         mode: 'index',
                         intersect: false,
                         callbacks: {
@@ -549,7 +584,10 @@
                         title: {
                             display: true,
                             text: 'Entitas',
-                            font: { family: 'Inter', size: 12 }
+                            font: {
+                                family: 'Inter',
+                                size: 12
+                            }
                         },
                         grid: {
                             display: false
@@ -560,7 +598,10 @@
                         title: {
                             display: true,
                             text: 'Jumlah Dokumen',
-                            font: { family: 'Inter', size: 12 }
+                            font: {
+                                family: 'Inter',
+                                size: 12
+                            }
                         },
                         beginAtZero: true,
                         grid: {
@@ -612,13 +653,22 @@
                         labels: {
                             boxWidth: 12,
                             padding: 10,
-                            font: { family: 'Inter', size: 10 }
+                            font: {
+                                family: 'Inter',
+                                size: 10
+                            }
                         }
                     },
                     tooltip: {
                         backgroundColor: 'rgba(0, 0, 0, 0.8)',
-                        titleFont: { family: 'Inter', size: 12 },
-                        bodyFont: { family: 'Inter', size: 11 },
+                        titleFont: {
+                            family: 'Inter',
+                            size: 12
+                        },
+                        bodyFont: {
+                            family: 'Inter',
+                            size: 11
+                        },
                         mode: 'index',
                         intersect: false,
                         callbacks: {
@@ -634,7 +684,10 @@
                         title: {
                             display: true,
                             text: 'Entitas',
-                            font: { family: 'Inter', size: 12 }
+                            font: {
+                                family: 'Inter',
+                                size: 12
+                            }
                         },
                         grid: {
                             display: false
@@ -645,7 +698,10 @@
                         title: {
                             display: true,
                             text: 'Jumlah Dokumen',
-                            font: { family: 'Inter', size: 12 }
+                            font: {
+                                family: 'Inter',
+                                size: 12
+                            }
                         },
                         beginAtZero: true,
                         grid: {
@@ -696,7 +752,9 @@
                             generateLabels: function(chart) {
                                 const data = chart.data;
                                 if (data.labels.length && data.datasets.length) {
-                                    const total = data.datasets[0].data.reduce((a, b) => a + b, 0);
+                                    const total = data.datasets[0].data
+                                        .map(val => Number(val) || 0)
+                                        .reduce((a, b) => a + b, 0);
                                     return data.labels.map((label, i) => {
                                         const value = data.datasets[0].data[i];
                                         const percentage = total > 0 ? ((value / total) * 100).toFixed(
@@ -718,14 +776,26 @@
                     },
                     tooltip: {
                         backgroundColor: 'rgba(0, 0, 0, 0.8)',
-                        titleFont: { family: 'Inter', size: 12 },
-                        bodyFont: { family: 'Inter', size: 11 },
+                        titleFont: {
+                            family: 'Inter',
+                            size: 12
+                        },
+                        bodyFont: {
+                            family: 'Inter',
+                            size: 11
+                        },
                         callbacks: {
                             label: function(context) {
-                                const total = context.dataset.data.reduce((a, b) => a + b, 0);
-                                const percentage = total > 0 ? ((context.parsed / total) * 100).toFixed(1) :
-                                    '0.0';
-                                return `${context.label}: ${context.parsed} dokumen (${percentage}%) - Klik untuk detail`;
+                                // Perbaikan: Pastikan semua nilai adalah number dan valid
+                                const total = context.dataset.data
+                                    .map(val => Number(val) || 0) // Konversi setiap nilai ke number
+                                    .reduce((a, b) => a + b, 0); // Sekarang akan menjumlahkan number
+
+
+                                const value = Number(context.parsed) || 0;
+                                const percentage = total > 0 ? ((value / total) * 100).toFixed(1) : '0.0';
+                                console.log(value, total, percentage);
+                                return `${context.label}: ${value} dokumen (${percentage}%) - Klik untuk detail`;
                             }
                         }
                     }
