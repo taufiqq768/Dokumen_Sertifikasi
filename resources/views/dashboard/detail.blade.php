@@ -176,8 +176,14 @@
 </head>
 
 <body class="min-h-screen">
-    <!-- Theme Toggle Button -->
-    <div class="fixed top-4 right-4 z-50">
+    <!-- Header with Theme Toggle and Logout -->
+    <div class="fixed top-4 right-4 z-50 flex items-center space-x-3">
+        <!-- User Info -->
+        <div class="theme-toggle px-4 py-2 rounded-full text-white text-sm">
+            <span class="hidden sm:inline">{{ Auth::user()->name }}</span>
+        </div>
+
+        <!-- Theme Toggle Button -->
         <button onclick="toggleTheme()"
             class="theme-toggle p-3 rounded-full text-white hover:scale-110 transition-all duration-300">
             <svg id="theme-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -186,6 +192,20 @@
                 </path>
             </svg>
         </button>
+
+        <!-- Logout Button -->
+        <form method="POST" action="{{ route('logout') }}" class="inline">
+            @csrf
+            <button type="submit"
+                class="theme-toggle p-3 rounded-full text-white hover:scale-110 hover:bg-red-500/20 transition-all duration-300"
+                title="Logout">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1">
+                    </path>
+                </svg>
+            </button>
+        </form>
     </div>
 
     <div class="container mx-auto px-4 py-8">
@@ -355,7 +375,8 @@
                     </div>
                     <h3 class="text-lg font-medium text-theme mb-2">Tidak ada data ditemukan</h3>
                     <p class="text-sm text-theme/70">Tidak ada dokumen yang sesuai dengan filter yang dipilih.</p>
-                    <p class="text-xs text-theme/50 mt-2">Coba ubah filter atau kembali ke dashboard untuk melihat semua
+                    <p class="text-xs text-theme/50 mt-2">Coba ubah filter atau kembali ke dashboard untuk melihat
+                        semua
                         data.</p>
                 </div>
             @endif

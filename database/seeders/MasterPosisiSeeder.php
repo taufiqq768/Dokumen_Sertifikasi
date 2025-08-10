@@ -13,10 +13,11 @@ class MasterPosisiSeeder extends Seeder
     public function run(): void
     {
         $posisiData = [
-            ['posisi' => 'berkas_baru_masuk'],
-            ['posisi' => 'permintaan penjelasan dokumen'],
-            ['posisi' => 'penelaahan Berkas'],
-            ['posisi' => 'sirkular persetujuan']
+            ['posisi' => 'Belum Telaah'],
+            ['posisi' => 'Proses Telaah'],
+            ['posisi' => 'Klarifikasi ke Kanwil'],
+            ['posisi' => 'Sirkular Persetujuan'],
+            ['posisi' => 'Terbit SK']
         ];
 
         foreach ($posisiData as $posisi) {

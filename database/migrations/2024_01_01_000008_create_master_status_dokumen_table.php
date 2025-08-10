@@ -11,11 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('proses_dokumen', function (Blueprint $table) {
+        Schema::create('master_status_dokumen', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('bidang_id')->constrained('master_bidang')->onDelete('cascade');
-            $table->foreignId('posisi_id')->constrained('master_posisi')->onDelete('cascade');
-            $table->text('keterangan')->nullable();
+            $table->string('status_dokumen');
             $table->timestamps();
         });
     }
@@ -25,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('proses_dokumen');
+        Schema::dropIfExists('master_status_dokumen');
     }
 };

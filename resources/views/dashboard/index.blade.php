@@ -186,8 +186,14 @@
 </head>
 
 <body class="min-h-screen">
-    <!-- Theme Toggle Button -->
-    <div class="fixed top-4 right-4 z-50">
+    <!-- Header with Theme Toggle and Logout -->
+    <div class="fixed top-4 right-4 z-50 flex items-center space-x-3">
+        <!-- User Info -->
+        <div class="theme-toggle px-4 py-2 rounded-full text-white text-sm">
+            <span class="hidden sm:inline">{{ Auth::user()->name }}</span>
+        </div>
+
+        <!-- Theme Toggle Button -->
         <button onclick="toggleTheme()"
             class="theme-toggle p-3 rounded-full text-white hover:scale-110 transition-all duration-300">
             <svg id="theme-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -196,17 +202,32 @@
                 </path>
             </svg>
         </button>
+
+        <!-- Logout Button -->
+        <form method="POST" action="{{ route('logout') }}" class="inline">
+            @csrf
+            <button type="submit"
+                class="theme-toggle p-3 rounded-full text-white hover:scale-110 hover:bg-red-500/20 transition-all duration-300"
+                title="Logout">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1">
+                    </path>
+                </svg>
+            </button>
+        </form>
     </div>
 
     <div class="container mx-auto px-4 py-8">
         <div class="fade-in">
             <h1 class="text-4xl font-bold text-white mb-2 text-center">Dashboard Dokumentasi Sertifikasi</h1>
+            <h3 class="text-2xl font-bold text-white mb-2 text-center">PT. PERKEBUNAN NUSANTARA</h3>
             <p class="text-center text-white/80 mb-8">Sistem Monitoring Dokumen Sertifikasi Lahan</p>
         </div>
 
         <!-- Bagian 1: Total Dokumen -->
         <div class="mb-8 slide-up">
-            <h2 class="text-xl font-semibold text-white mb-4">📊 Total Dokumen</h2>
+            <h2 class="text-xl font-semibold text-white mb-4">📊 Total Bidang</h2>
             <div class="glass-card rounded-xl p-6">
                 <div class="flex items-center">
                     <div class="icon-gradient text-white rounded-xl p-4 mr-6">
@@ -217,7 +238,7 @@
                         </svg>
                     </div>
                     <div>
-                        <h3 class="text-lg font-medium text-theme">Total Semua Dokumen Proses</h3>
+                        <h3 class="text-lg font-medium text-theme">Total Semua Dokumen Bidang</h3>
                         <p class="text-3xl font-bold gradient-text">{{ number_format($totalDokumen) }}</p>
                     </div>
                 </div>
@@ -226,7 +247,7 @@
 
         <!-- Bagian 2: Dokumen Berdasarkan Posisi -->
         <div class="mb-8 slide-up" style="animation-delay: 0.2s;">
-            <h2 class="text-xl font-semibold text-white mb-4">📍 Dokumen Berdasarkan Posisi</h2>
+            <h2 class="text-xl font-semibold text-white mb-4">📍 Jumlah Bidang Berdasarkan Posisi</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                 @php
                     $gradients = [
@@ -271,7 +292,7 @@
 
         <!-- Status Cards Section -->
         <div class="mb-8 slide-up" style="animation-delay: 0.4s;">
-            <h2 class="text-xl font-semibold text-white mb-4">✅ Dokumen Berdasarkan Status</h2>
+            <h2 class="text-xl font-semibold text-white mb-4">✅ Jumlah Bidang Berdasarkan Status Penelaahan</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <!-- Clear Status Card -->
                 <a href="{{ route('dashboard.detail', ['status' => 'clear']) }}" class="stat-card block rounded-xl p-6">
